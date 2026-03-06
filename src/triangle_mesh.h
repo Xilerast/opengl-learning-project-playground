@@ -7,5 +7,6 @@ class TriangleMesh {
         ~TriangleMesh();
 
     private:
-        unsigned int VertexBufferObject, VertexArrayObject, vertex_count;
+        unsigned int ElementBufferObject, VertexArrayObject, ElementCount;
+        std::vector<unsigned int> VertexBufferObjects;
 };
