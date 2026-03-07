@@ -7,4 +7,14 @@ It's recommended to build this project using LLVM/Clang.
 ## Dependencies
 
 [GLFW](https://www.glfw.org/) \
-[GLAD](https://glad.dav1d.de/)
+[GLAD](https://glad.dav1d.de/) \
+[stb_image](https://github.com/nothings/stb)
+
+### Images
+
+You will need to store on the root of the project a folder called `img`. That folder will contain the images that this project will use. (WEBP files probably not allowed)
+
+Image names: 
+
+"kitty.png" \
+"mask.jpg"

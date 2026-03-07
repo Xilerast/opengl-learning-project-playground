@@ -45,9 +45,20 @@ int main() {
     glClearColor(0.33f, 0.0f, 0.66f, 1.0f);
 
     TriangleMesh* triangle = new TriangleMesh();
+    Material *material = new Material("./img/kitty.png");
+    Material *mask = new Material("./img/mask.png");
 
     // Make the shader program
     unsigned int shader = make_shader(vertexShaderFile, fragmentShaderFile);
+
+    // set texture units
+    glUseProgram(shader);
+    glUniform1i(glGetUniformLocation(shader, "material"), 0);
+    glUniform1i(glGetUniformLocation(shader, "mask"), 1);
+
+    // Enable alpha blending
+    glEnable(GL_BLEND);
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
     // Main loop
     while (!glfwWindowShouldClose(window)) {
@@ -56,6 +67,8 @@ int main() {
         glClear(GL_COLOR_BUFFER_BIT);
         
         glUseProgram(shader);
+        material->use(0);
+        mask->use(1);
         triangle->draw();
         glfwSwapBuffers(window);
     }
@@ -65,6 +78,8 @@ int main() {
     
     free(fragmentShaderFile);
     free(vertexShaderFile);
+    delete mask;
+    delete material;
     delete triangle;
     glDeleteProgram(shader);
 

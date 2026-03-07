@@ -12,3 +12,4 @@
 #include "utils.h"
 #include "triangle_mesh.h"
 #include "shader_utils.h"
+#include "material.h"
