@@ -18,12 +18,15 @@ set( _glfw3_HEADER_SEARCH_DIRS
 "/usr/include"
 "/usr/local/include"
 "${CMAKE_SOURCE_DIR}/includes"
-"E:/glfw-3.4.bin.WIN64/include" )
+"E:/glfw-3.4.bin.WIN64/include"
+"/home/linuxbrew/.linuxbrew/Cellar/glfw/3.4/include" )
 set( _glfw3_LIB_SEARCH_DIRS
 "/usr/lib"
+"/usr/lib64"
 "/usr/local/lib"
 "${CMAKE_SOURCE_DIR}/lib"
-"E:/glfw-3.4.bin.WIN64/lib-vc2022" )
+"E:/glfw-3.4.bin.WIN64/lib-vc2022"
+"/home/linuxbrew/.linuxbrew/Cellar/glfw/3.4/lib" )
 
 # Check environment for root search directory
 set( _glfw3_ENV_ROOT $ENV{GLFW3_ROOT} )

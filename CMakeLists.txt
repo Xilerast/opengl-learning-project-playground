@@ -18,7 +18,13 @@ find_package(OpenGL REQUIRED)
 find_package(glfw3 REQUIRED)
 target_include_directories(gfx_playground PRIVATE dependencies ${GLFW3_INCLUDE_DIR})
 
-target_link_libraries(gfx_playground ${GLFW3_LIBRARY} OpenGL::GL)
+if (MSVC OR WIN32)
+    target_link_libraries(gfx_playground ${GLFW3_LIBRARY} OpenGL::GL)
+endif (MSVC OR WIN32)
+
+if (UNIX)
+    target_link_libraries(gfx_playground glfw OpenGL::GL)
+endif (UNIX)
 
 add_custom_command(
     TARGET ${PROJECT_NAME} POST_BUILD
