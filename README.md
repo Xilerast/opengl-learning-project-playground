@@ -10,6 +10,8 @@ It's recommended to build this project using LLVM/Clang.
 [GLAD](https://glad.dav1d.de/) \
 [stb_image](https://github.com/nothings/stb)
 
+This also uses a modified version of [JoeyDeVries' of FindGLFW3.cmake](https://github.com/JoeyDeVries/LearnOpenGL/blob/master/cmake/modules/FindGLFW3.cmake).
+
 ### Images
 
 You will need to store on the root of the project a folder called `img`. That folder will contain the images that this project will use. (WEBP files probably not allowed)

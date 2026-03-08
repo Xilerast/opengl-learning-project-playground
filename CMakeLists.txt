@@ -12,29 +12,31 @@ add_executable(
     dependencies/stb_image.h
 )
 
+list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
+
 find_package(OpenGL REQUIRED)
 find_package(glfw3 REQUIRED)
-target_include_directories(gfx_playground PRIVATE dependencies)
+target_include_directories(gfx_playground PRIVATE dependencies ${GLFW3_INCLUDE_DIR})
 
-target_link_libraries(gfx_playground glfw OpenGL::GL)
+target_link_libraries(gfx_playground ${GLFW3_LIBRARY} OpenGL::GL)
 
 add_custom_command(
-    TARGET ${PROJECT_NAME} PRE_BUILD
+    TARGET ${PROJECT_NAME} POST_BUILD
     COMMAND ${CMAKE_COMMAND} -E copy
             ${CMAKE_CURRENT_SOURCE_DIR}/src/shaders/fragment_shader.fx
             ${CMAKE_CURRENT_BINARY_DIR}/fragment_shader.fx
 )
 
 add_custom_command(
-    TARGET ${PROJECT_NAME} PRE_BUILD
+    TARGET ${PROJECT_NAME} POST_BUILD
     COMMAND ${CMAKE_COMMAND} -E copy
             ${CMAKE_CURRENT_SOURCE_DIR}/src/shaders/vertex_shader.fx
             ${CMAKE_CURRENT_BINARY_DIR}/vertex_shader.fx
 )
 
 add_custom_command(
-    TARGET ${PROJECT_NAME} PRE_BUILD
-    COMMAND ${CMAKE_COMMAND} -E copy
-    ${CMAKE_CURRENT_SOURCE_DIR}/img/**
-    ${CMAKE_CURRENT_BINARY_DIR}/img/
+    TARGET ${PROJECT_NAME} POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E copy_directory
+    ${CMAKE_CURRENT_SOURCE_DIR}/img/
+    ${CMAKE_CURRENT_BINARY_DIR}/img
 )
