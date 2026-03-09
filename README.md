@@ -8,7 +8,8 @@ It's recommended to build this project using LLVM/Clang.
 
 [GLFW](https://www.glfw.org/) \
 [GLAD](https://glad.dav1d.de/) \
-[stb_image](https://github.com/nothings/stb)
+[stb_image](https://github.com/nothings/stb) \
+[GLM](https://github.com/g-truc/glm/)
 
 This also uses a modified version of [JoeyDeVries' of FindGLFW3.cmake](https://github.com/JoeyDeVries/LearnOpenGL/blob/master/cmake/modules/FindGLFW3.cmake).
 
